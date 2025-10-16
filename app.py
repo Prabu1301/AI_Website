@@ -55,5 +55,7 @@ def contact():
             msg = "Thanks, comment submitted & alert sent!"
     return render_template("contact.html", comments=COMMENT_LIST, comment_count=len(COMMENT_LIST), click_count=CLICK_COUNT, msg=msg)
 
+import os
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
