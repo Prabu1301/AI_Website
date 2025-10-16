@@ -1,1 +1,50 @@
-/* Paste your CSS code here */
+body {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #000;
+  color: #f1f1f1;
+  min-height: 100vh;
+  margin:0;
+}
+.gradient-bg {
+  background: #111;
+}
+.container {
+  width: 85vw;
+  margin: 45px auto 24px auto;
+  border-radius: 24px;
+  padding: 38px 16px 28px 16px;
+  box-shadow: 0px 2px 36px 0px rgba(255,255,255,0.09), 0px 2px 12px 0px rgba(189,99,255,0.05);
+}
+input, textarea {
+  width: 80%;
+  margin: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #303030;
+  font-size: 17px;
+  background: #222;
+  color: #eee;
+}
+button {
+  background: linear-gradient(120deg, #263238 0%, #1a237e 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 14px;
+  font-size: 20px;
+  margin-top:4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 12px 0px #222;
+}
+button:hover {
+  background: linear-gradient(120deg, #1a237e 0%, #263238 100%);
+}
+hr { margin: 32px 0; border: 0; border-top: 2px solid #777;}
+footer {
+  margin-top: 22px;
+  font-size: 15px;
+  color: #aaa;
+}
+ul {padding-left: 32px;}
+a { color: #84ffff; text-decoration: underline; }
+a:hover { color: #ff5722; }

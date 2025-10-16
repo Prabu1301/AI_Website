@@ -1,1 +1,29 @@
-<!-- Paste your login.html template here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login | Prabhu's Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .video-center { display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+  </style>
+</head>
+<body>
+<div class="container gradient-bg">
+    <div class="video-center">
+      <video width="700" height="420" controls style="margin: auto;">
+        <source src="{{ url_for('static', filename='Avatar-IV-Video_2.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h2>Login (Optional)</h2>
+    <form method="post" style="margin-bottom:20px;">
+      <input type="text" name="username" placeholder="Your Username (optional)"><br>
+      <input type="password" name="password" placeholder="Password (optional)"><br>
+      <button type="submit">Login</button>
+    </form>
+    <form method="get" action="{{ url_for('home') }}">
+      <button type="submit">Skip Login</button>
+    </form>
+</div>
+</body>
+</html>
