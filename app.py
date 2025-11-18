@@ -1,17 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import yagmail
+import os
 
 app = Flask(__name__)
-app.secret_key = "supersecret"
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "defaultsecret")
 
 CLICK_COUNT = 0
 COMMENT_LIST = []
 
-EMAIL_RECEIVER = "gideonprabu@gmail.com"
-GMAIL_USER = "prabu.notifications@gmail.com"
-GMAIL_APP_PASSWORD = "YOUR-GMAIL-APP-PASSWORD"  # <-- Replace with your Google App Password
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+GMAIL_USER = os.getenv("GMAIL_USER")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 
-PASSWORDS = {"kcwo mvdn cpcj ynkb"}
+# You can also move PASSWORDS to an env variable if needed
+PASSWORDS = {os.getenv("LOGIN_PASSWORD", "kcwo mvdn cpcj ynkb")}
 
 def send_comment_alert(name, comment):
     try:
@@ -55,7 +57,6 @@ def contact():
             msg = "Thanks, comment submitted & alert sent!"
     return render_template("contact.html", comments=COMMENT_LIST, comment_count=len(COMMENT_LIST), click_count=CLICK_COUNT, msg=msg)
 
-import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
